@@ -1,7 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name" translatable="false">MatApp</string>
-    <string name="autor" translatable="false">Joaquin Gustavo Espino de Horta</string>
-    <string name="version" translatable="false">Version 1.0.0</string>
     <string name="btn_action1">Calcular</string>
     <string name="btn_action2">Normal</string>
     <string name="btn_action3">Volver</string>

@@ -13,6 +13,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "App1"
+rootProject.name = "MatApp"
 include(":app")
  

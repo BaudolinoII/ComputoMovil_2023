@@ -4,15 +4,15 @@ plugins {
 }
 
 android {
-    namespace = "com.app1"
+    namespace = "com.by_jogehrt.matapp"
     compileSdk = 33
 
     defaultConfig {
-        applicationId = "com.app1"
+        applicationId = "com.by_jogehrt.matapp"
         minSdk = 23
         targetSdk = 33
         versionCode = 1
-        versionName = "1.0"
+        versionName = "1.0.0_OneShot"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -44,6 +44,9 @@ dependencies {
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("com.google.android.material:material:1.9.0")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
+
+    implementation("pl.droidsonroids.gif:android-gif-drawable:1.2.25")
+
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")

@@ -1,4 +1,4 @@
-package com.app1
+package com.by_jogehrt.matapp
 
 import org.junit.Test
 
