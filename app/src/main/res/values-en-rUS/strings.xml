@@ -3,16 +3,28 @@
     <string name="btn_action1">Calculate</string>
     <string name="btn_action2">Normal</string>
     <string name="btn_action3">Back</string>
-    <string name="et_hint1">Write a number</string>
-    <string name="et_hint2">Axis %s</string>
-    <string name="et_hint3">%s</string>
-    <string name="et_hint4">Value</string>
-    <string name="et_hint5">Module</string>
-    <string name="res_dot">Dot product is %d</string>
-    <string name="res_cross">Cross product is (%1$d, %2$d, %3$d)</string>
-    <string name="res_x">Result of X%1$d is %2$d%3$s</string>
-    <string name="res_invd">Inverse of %1$dmod%2$d is %3$d</string>
-    <string name="res_invd_not">Inverse of %1$d is not possible for %1$d</string>
+    <string name="et_hint1">Escribe un número</string>
+
+    <string name="name_product_vec">Cross Product</string>
+    <string name="name_general_formula">General Formula</string>
+    <string name="name_inverse_mod">Discret Inverse</string>
+
+    <string name="et_hint2">Valor</string>
+    <string name="et_hint3">Modulo</string>
+
+    <string name="et_hint7">Axis X</string>
+    <string name="et_hint8">Axis Y</string>
+    <string name="et_hint9">Axis Z</string>
+
+    <string name="res_dot">Dot product is %f</string>
+    <string name="res_cross">Cross product is (%1$f, %2$f, %3$f)</string>
+
+    <string name="res_x">Result of X%1$s is %2$f</string>
+    <string name="res_x_comp">Result of X%1$s is %2$f + %3$fi</string>
+    <string name="res_x_img">Result of X%1$s is %2$fi</string>
+
+    <string name="res_invd">Inverse of %1$d mod %2$d is %3$d</string>
+    <string name="res_invd_not">Inverse of %1$d is not possible for %2$d</string>
     <string name="com_positive">Im pretty sure that exist</string>
     <string name="com_negative">Going to be a hard one</string>
 </resources>

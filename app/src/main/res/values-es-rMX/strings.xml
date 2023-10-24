@@ -1,18 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <string name="btn_action1">Calcular</string>
     <string name="btn_action2">Normal</string>
     <string name="btn_action3">Volver</string>
     <string name="et_hint1">Escribe un número</string>
-    <string name="et_hint2">Eje %s</string>
-    <string name="et_hint3">%s</string>
-    <string name="et_hint4">Valor</string>
-    <string name="et_hint5">Modulo</string>
-    <string name="res_dot">El producto punto es %d</string>
-    <string name="res_cross">El producto cruz es (%1$d, %2$d, %3$d)</string>
-    <string name="res_x">El resultado X%1$d es %2$d%3$s</string>
+
+    <string name="name_product_vec">Producto Cruz</string>
+    <string name="name_general_formula">Formula General</string>
+    <string name="name_inverse_mod">Inverso Discreto</string>
+
+    <string name="et_hint2">Valor</string>
+    <string name="et_hint3">Modulo</string>
+
+    <string name="et_hint7">Eje X</string>
+    <string name="et_hint8">Eje Y</string>
+    <string name="et_hint9">Eje Z</string>
+
+    <string name="res_dot">El producto punto es %f</string>
+    <string name="res_cross">El producto cruz es (%1$f, %2$f, %3$f)</string>
+
+    <string name="res_x">El resultado X%1$s es %2$f</string>
+    <string name="res_x_comp">El resultado X%1$s es %2$f + %3$f i</string>
+    <string name="res_x_img">El resultado X%1$s es %2$f i</string>
+
     <string name="res_invd">El inverso de %1$dmod%2$d es %3$d</string>
-    <string name="res_invd_not">El inverso de %1$d no existe para %1$d</string>
+    <string name="res_invd_not">El inverso de %1$d no existe para %2$d</string>
     <string name="com_positive">Muy seguramente existe</string>
     <string name="com_negative">Será difícil encontrar</string>
 </resources>

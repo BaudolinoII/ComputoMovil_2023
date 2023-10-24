@@ -4,6 +4,232 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".VectorOps">
+    android:background="@drawable/background"
+    tools:context=".MainActivity">
 
+
+    <TextView
+        android:id="@+id/tvFormula"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text="@string/vector_cross"
+        android:fontFamily="@font/press_start_2p"
+        android:textSize="20sp"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvTitle" />
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text="@string/app_name"
+        android:fontFamily="@font/calligraffitti"
+        android:textSize="38sp"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+    <TextView
+        android:id="@+id/tvResultCross"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:fontFamily="@font/calligraffitti"
+        android:gravity="center"
+        android:text="@string/res_cross"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+
+
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvFormula" />
+    <TextView
+        android:id="@+id/tvResultDot"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/calligraffitti"
+        android:gravity="center"
+        android:text="@string/res_dot"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+
+
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvResultCross" />
+
+    <Button
+        android:id="@+id/btnAction"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="140dp"
+
+        android:backgroundTint="@color/button_state_colors"
+        android:enabled="false"
+        android:fontFamily="@font/press_start_2p"
+        android:text="@string/btn_action1"
+        android:textColor="@color/button_text_state_colors"
+        android:textSize="5pt"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+    <Button
+        android:id="@+id/btnNormal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+
+        android:backgroundTint="@color/button_state_colors"
+        android:enabled="false"
+        android:fontFamily="@font/press_start_2p"
+        android:text="@string/btn_action2"
+        android:textColor="@color/button_text_state_colors"
+        android:textSize="5pt"
+
+        app:layout_constraintBottom_toTopOf="@id/btnAction"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+
+    <EditText
+        android:id="@+id/etNumAX"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="3"
+
+        android:fontFamily="@font/calligraffitti"
+        android:gravity="center_horizontal"
+        android:hint="@string/et_hint7"
+        android:importantForAutofill="no"
+        android:inputType="numberSigned"
+        android:maxLength="5"
+        android:textAlignment="center"
+        android:textColorHint="@color/button_text_state_colors"
+        android:textSize="20sp"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/etNumBX"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+    <EditText
+        android:id="@+id/etNumBX"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="3"
+
+        android:fontFamily="@font/calligraffitti"
+        android:gravity="center_horizontal"
+        android:hint="@string/et_hint8"
+        android:importantForAutofill="no"
+        android:inputType="numberSigned"
+        android:maxLength="5"
+        android:textAlignment="center"
+        android:textColorHint="@color/button_text_state_colors"
+        android:textSize="20sp"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/etNumCX"
+        app:layout_constraintStart_toEndOf="@id/etNumAX"
+        app:layout_constraintTop_toTopOf="parent"/>
+    <EditText
+        android:id="@+id/etNumCX"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="3"
+
+        android:fontFamily="@font/calligraffitti"
+        android:gravity="center_horizontal"
+        android:hint="@string/et_hint9"
+        android:importantForAutofill="no"
+        android:inputType="numberSigned"
+        android:maxLength="5"
+        android:textAlignment="center"
+        android:textColorHint="@color/button_text_state_colors"
+        android:textSize="20sp"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/etNumBX"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <EditText
+        android:id="@+id/etNumAY"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="3"
+
+        android:fontFamily="@font/calligraffitti"
+        android:gravity="center_horizontal"
+        android:hint="@string/et_hint7"
+        android:importantForAutofill="no"
+        android:inputType="numberSigned"
+        android:maxLength="5"
+        android:textAlignment="center"
+        android:textColorHint="@color/button_text_state_colors"
+        android:textSize="20sp"
+        android:enabled="false"
+
+        app:layout_constraintTop_toBottomOf="@id/etNumAX"
+        app:layout_constraintEnd_toStartOf="@id/etNumBX"
+        app:layout_constraintStart_toStartOf="parent"/>
+    <EditText
+        android:id="@+id/etNumBY"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="3"
+
+        android:fontFamily="@font/calligraffitti"
+        android:gravity="center_horizontal"
+        android:hint="@string/et_hint8"
+        android:importantForAutofill="no"
+        android:inputType="numberSigned"
+        android:maxLength="5"
+        android:textAlignment="center"
+        android:textColorHint="@color/button_text_state_colors"
+        android:textSize="20sp"
+        android:enabled="false"
+
+        app:layout_constraintTop_toBottomOf="@id/etNumBX"
+        app:layout_constraintStart_toEndOf="@id/etNumAY"
+        app:layout_constraintEnd_toStartOf="@id/etNumCY"/>
+    <EditText
+        android:id="@+id/etNumCY"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="3"
+
+        android:fontFamily="@font/calligraffitti"
+        android:gravity="center_horizontal"
+        android:hint="@string/et_hint9"
+        android:importantForAutofill="no"
+        android:inputType="numberSigned"
+        android:maxLength="5"
+        android:textAlignment="center"
+        android:textColorHint="@color/button_text_state_colors"
+        android:textSize="20sp"
+        android:enabled="false"
+
+        app:layout_constraintTop_toBottomOf="@id/etNumCX"
+        app:layout_constraintStart_toEndOf="@id/etNumBY"
+        app:layout_constraintEnd_toEndOf="parent"/>
+    <Spinner
+        android:id="@+id/spnSpinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="paren"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
