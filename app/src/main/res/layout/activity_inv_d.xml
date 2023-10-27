@@ -77,7 +77,7 @@
         android:backgroundTint="@color/button_state_colors"
         android:textColor="@color/button_text_state_colors"
         android:fontFamily="@font/press_start_2p"
-        android:textSize="5pt"
+        android:textSize="7pt"
         android:enabled="false"
 
         app:layout_constraintBottom_toBottomOf="parent"
@@ -133,8 +133,5 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
 
-
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="paren"
         app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -24,8 +24,11 @@ class GeneralFormula : AppCompatActivity() {
         binding = ActivityGeneralFormulaBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        functions.set(0,getString(R.string.name_inverse_mod))
-        functions.set(1,getString(R.string.name_product_vec))
+        functions = emptyArray()
+
+        functions = append(functions, getString(R.string.name_general_formula))
+        functions = append(functions, getString(R.string.name_inverse_mod))
+        functions = append(functions, getString(R.string.name_product_vec))
 
         binding.spnSpinner.adapter = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item,functions)
         binding.spnSpinner.onItemSelectedListener = object: AdapterView.OnItemSelectedListener{
@@ -62,14 +65,9 @@ class GeneralFormula : AppCompatActivity() {
 
         binding.btnAction.setOnClickListener {
             generalForm(binding.etNumA.text.toString().toFloat(),
-                        binding.etNumB.text.toString().toFloat(),
-                        binding.etNumC.text.toString().toFloat())
+                binding.etNumB.text.toString().toFloat(),
+                binding.etNumC.text.toString().toFloat())
             if(status){
-                binding.tvResultX1.isInvisible = false
-                binding.tvResultX1.text = getString(R.string.res_x,"1",X1)
-                binding.tvResultX2.isInvisible = false
-                binding.tvResultX2.text = getString(R.string.res_x,"2",X2)
-            }else{
                 if(binding.etNumB.text.toString().toFloat() == 0.0f){
                     binding.tvResultX1.isInvisible = false
                     binding.tvResultX1.text = getString(R.string.res_x_img,"1",X2)
@@ -81,11 +79,20 @@ class GeneralFormula : AppCompatActivity() {
                     binding.tvResultX2.isInvisible = false
                     binding.tvResultX2.text = getString(R.string.res_x_comp,"2",X1,X2i)
                 }
-
+            }else{
+                binding.tvResultX1.isInvisible = false
+                binding.tvResultX1.text = getString(R.string.res_x,"1",X1)
+                binding.tvResultX2.isInvisible = false
+                binding.tvResultX2.text = getString(R.string.res_x,"2",X2)
             }
         }
     }
 
+    private fun append(arr: Array<String>, element: String): Array<String> {
+        val list: MutableList<String> = arr.toMutableList()
+        list.add(element)
+        return list.toTypedArray()
+    }
     private fun changeActivity(){
         if( 0 == binding.spnSpinner.selectedItem.toString().compareTo(getString(R.string.name_inverse_mod))){
             startActivity(Intent(this,InvD::class.java))
@@ -101,7 +108,7 @@ class GeneralFormula : AppCompatActivity() {
     fun generalForm(a:Float, b:Float, c:Float){
         val d = getDisc(a,b,c)
 
-        status = d < 0
+        status = d < 0 // true si es complejo/imaginario
 
         if(status){
             X1 = (-b) / (2 * a)

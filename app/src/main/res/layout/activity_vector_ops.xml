@@ -78,7 +78,7 @@
         android:fontFamily="@font/press_start_2p"
         android:text="@string/btn_action1"
         android:textColor="@color/button_text_state_colors"
-        android:textSize="5pt"
+        android:textSize="7pt"
 
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -94,7 +94,7 @@
         android:fontFamily="@font/press_start_2p"
         android:text="@string/btn_action2"
         android:textColor="@color/button_text_state_colors"
-        android:textSize="5pt"
+        android:textSize="7pt"
 
         app:layout_constraintBottom_toTopOf="@id/btnAction"
         app:layout_constraintEnd_toEndOf="parent"
@@ -228,8 +228,5 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
 
-
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="paren"
         app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

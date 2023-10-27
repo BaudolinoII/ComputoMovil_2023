@@ -25,8 +25,11 @@ class VectorOps : AppCompatActivity() {
         binding = ActivityVectorOpsBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        functions.set(0,getString(R.string.name_general_formula))
-        functions.set(1,getString(R.string.name_inverse_mod))
+        functions = emptyArray()
+
+        functions = append(functions, getString(R.string.name_product_vec))
+        functions = append(functions, getString(R.string.name_inverse_mod))
+        functions = append(functions, getString(R.string.name_general_formula))
 
         binding.spnSpinner.adapter = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item,functions)
         binding.spnSpinner.onItemSelectedListener = object: AdapterView.OnItemSelectedListener{
@@ -42,7 +45,7 @@ class VectorOps : AppCompatActivity() {
             override fun afterTextChanged(s: Editable?) {
                 //Validar si hay algo en la caja, para habilitar el botón
                 binding.etNumAY.isEnabled = readiV1()
-                binding.etNumBX.isEnabled = readiV1()
+                binding.etNumBY.isEnabled = readiV1()
                 binding.etNumCY.isEnabled = readiV1()
             }
         })
@@ -52,7 +55,7 @@ class VectorOps : AppCompatActivity() {
             override fun afterTextChanged(s: Editable?) {
                 //Validar si hay algo en la caja, para habilitar el botón
                 binding.etNumAY.isEnabled = readiV1()
-                binding.etNumBX.isEnabled = readiV1()
+                binding.etNumBY.isEnabled = readiV1()
                 binding.etNumCY.isEnabled = readiV1()
             }
         })
@@ -62,7 +65,7 @@ class VectorOps : AppCompatActivity() {
             override fun afterTextChanged(s: Editable?) {
                 //Validar si hay algo en la caja, para habilitar el botón
                 binding.etNumAY.isEnabled = readiV1()
-                binding.etNumBX.isEnabled = readiV1()
+                binding.etNumBY.isEnabled = readiV1()
                 binding.etNumCY.isEnabled = readiV1()
             }
         })
@@ -113,12 +116,28 @@ class VectorOps : AppCompatActivity() {
         }
         binding.btnNormal.setOnClickListener{
             normal = !normal
+
+            getCrossProduct()
+            getDotProduct()
+
+            binding.tvResultCross.isInvisible = false
+            binding.tvResultCross.text = getString(R.string.res_cross, res_Vec[0], res_Vec[1], res_Vec[2])
+
+            binding.tvResultDot.isInvisible = false
+            binding.tvResultDot.text = getString(R.string.res_dot, res_scl)
+
             if(normal)
                 binding.btnNormal.text = getString(R.string.btn_action3)
             else
                 binding.btnNormal.text = getString(R.string.btn_action2)
             getCrossProduct()
         }
+    }
+
+    private fun append(arr: Array<String>, element: String): Array<String> {
+        val list: MutableList<String> = arr.toMutableList()
+        list.add(element)
+        return list.toTypedArray()
     }
 
     private fun changeActivity(){

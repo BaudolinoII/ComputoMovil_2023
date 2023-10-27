@@ -22,6 +22,12 @@ class InvD : AppCompatActivity() {
         binding = ActivityInvDBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        functions = emptyArray()
+
+        functions = append(functions, getString(R.string.name_inverse_mod))
+        functions = append(functions, getString(R.string.name_product_vec))
+        functions = append(functions, getString(R.string.name_general_formula))
+
         binding.etNumVal.addTextChangedListener( object: TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
@@ -48,14 +54,14 @@ class InvD : AppCompatActivity() {
             d = binding.etNumVal.text.toString().toInt()
             val c = getInvD(d,e);
             if(c == 0)
-                binding.tvResultado.text = getString(R.string.res_invd,d,e,c)
-            else
                 binding.tvResultado.text = getString(R.string.res_invd_not,d,e)
+            else
+                binding.tvResultado.text = getString(R.string.res_invd,d,e,c)
+
+            binding.tvResultado.isInvisible = false
             binding.tvAnticipo.isInvisible = true
         }
 
-        functions.set(0,getString(R.string.name_general_formula))
-        functions.set(1,getString(R.string.name_product_vec))
 
         binding.spnSpinner.adapter = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item,functions)
         binding.spnSpinner.onItemSelectedListener = object:AdapterView.OnItemSelectedListener{
@@ -67,6 +73,11 @@ class InvD : AppCompatActivity() {
 
     }
 
+    private fun append(arr: Array<String>, element: String): Array<String> {
+        val list: MutableList<String> = arr.toMutableList()
+        list.add(element)
+        return list.toTypedArray()
+    }
     private fun changeActivity(){
         if( 0 == binding.spnSpinner.selectedItem.toString().compareTo(getString(R.string.name_general_formula))){
             startActivity(Intent(this,GeneralFormula::class.java))
@@ -83,9 +94,7 @@ class InvD : AppCompatActivity() {
     }
     private fun esPrimo(numero: Int): Boolean{
         if(numero <= 1) return false
-
         for(i in 2 until numero) if(numero%i == 0) return false
-
         return true
     }
     private fun readyET() : Boolean = binding.etNumVal.text.isNotEmpty() && binding.etNumMod.text.isNotEmpty()

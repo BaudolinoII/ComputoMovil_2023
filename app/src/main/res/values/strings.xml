@@ -25,12 +25,12 @@
     <string name="et_hint8">Eje Y</string>
     <string name="et_hint9">Eje Z</string>
 
-    <string name="res_dot">El producto punto es %f</string>
-    <string name="res_cross">El producto cruz es (%1$f, %2$f, %3$f)</string>
+    <string name="res_dot">El producto punto es %.2f</string>
+    <string name="res_cross">El producto cruz es (%1$.2f, %2$.2f, %3$.2f)</string>
 
-    <string name="res_x">El resultado X%1$s es %2$f</string>
-    <string name="res_x_comp">El resultado X%1$s es %2$f + %3$f i</string>
-    <string name="res_x_img">El resultado X%1$s es %2$f i</string>
+    <string name="res_x">El resultado X%1$s es %2$.2f</string>
+    <string name="res_x_comp">El resultado X%1$s es %2$.2f + %3$.2f i</string>
+    <string name="res_x_img">El resultado X%1$s es %2$.2fi</string>
 
     <string name="res_invd">El inverso de %1$d mod %2$d es %3$d</string>
     <string name="res_invd_not">El inverso de %1$d no existe para %2$d</string>
