@@ -7,4 +7,17 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <color name="Arryn">#83F0F4</color>
+    <color name="Baratheon">#F4D300</color>
+    <color name="Greyjoy">#291D0A</color>
+    <color name="Lannister">#BF2418</color>
+    <color name="Martell">#D58C10</color>
+    <color name="Mormont">#123905</color>
+    <color name="Stark">#C4C4C4</color>
+    <color name="Targaryen">#130B0B</color>
+    <color name="Tully">#0A61A3</color>
+    <color name="Tyrell">#75A30A</color>
+    <color name="Unknown">#FFFFFF</color>
+
 </resources>

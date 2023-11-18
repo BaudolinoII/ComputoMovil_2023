@@ -1,7 +1,7 @@
-package com.by_jogehrt.mygot
+package com.by_jogehrt.mygot.ui.activities
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import com.by_jogehrt.mygot.databinding.ActivityLogginBinding
 
 class Loggin : AppCompatActivity() {
