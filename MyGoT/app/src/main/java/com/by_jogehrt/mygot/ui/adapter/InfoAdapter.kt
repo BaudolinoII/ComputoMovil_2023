@@ -5,13 +5,13 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.by_jogehrt.mygot.databinding.ListElementBinding
-import com.by_jogehrt.mygot.info.InfoNode
+import com.by_jogehrt.mygot.info.InfoDetail
 
-class InfoAdapter(private var infoNodes : ArrayList<InfoNode>, private var onInfoClick :(inf : InfoNode) -> Unit) : RecyclerView.Adapter<InfoAdapter.ViewHolder>() {
+class InfoAdapter(private var infoNodes : ArrayList<InfoDetail>, private var onInfoClick :(inf : InfoDetail) -> Unit) : RecyclerView.Adapter<InfoAdapter.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder = ViewHolder(ListElementBinding.inflate(LayoutInflater.from(parent.context)))
     override fun getItemCount(): Int = infoNodes.size
     class ViewHolder(private var binding: ListElementBinding): RecyclerView.ViewHolder(binding.root){
-        fun bind(inf : InfoNode){
+        fun bind(inf : InfoDetail){
             binding.tvNombre.text = inf.f_name
             binding.tvApellido.text = inf.l_name
             Glide.with(itemView.context).load(inf.image_url).into(binding.ivProfile)

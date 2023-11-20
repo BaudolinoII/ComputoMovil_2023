@@ -20,7 +20,7 @@ class MainList : AppCompatActivity() {
         binding = DetailElementBinding.inflate(layoutInflater)
         setContentView(binding.root)
         val bundle = intent.extras
-        val id = bundle?.getString("id", "0")
+        val id = bundle?.getString("id")
 
         val call = RetrofitService.getRetrofit().create(GoTAPI::class.java).getInfoDetail(id)
         call.enqueue(object: Callback<InfoDetail>{ override fun onResponse(call: Call<InfoDetail>, response: Response<InfoDetail>) {
