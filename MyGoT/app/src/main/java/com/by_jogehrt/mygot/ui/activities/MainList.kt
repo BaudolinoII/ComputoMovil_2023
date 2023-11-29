@@ -24,7 +24,6 @@ class MainList : AppCompatActivity() {
 
         val call = RetrofitService.getRetrofit().create(GoTAPI::class.java).getInfoDetail(id)
         call.enqueue(object: Callback<InfoDetail>{ override fun onResponse(call: Call<InfoDetail>, response: Response<InfoDetail>) {
-
                 with(binding) {
                     pbConexion.visibility = View.INVISIBLE
                     Glide.with(this@MainList).load(response.body()?.image).into(ivProfile)

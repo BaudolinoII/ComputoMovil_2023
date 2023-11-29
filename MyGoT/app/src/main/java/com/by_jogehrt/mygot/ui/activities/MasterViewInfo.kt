@@ -19,7 +19,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class MasterViewInfo : AppCompatActivity() {
+class MasterViewInfo : AppCompatActivity() { //Main Class
     private lateinit var binding: ActivityMasterViewInfoBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -27,8 +27,7 @@ class MasterViewInfo : AppCompatActivity() {
         binding = ActivityMasterViewInfoBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val call = RetrofitService.getRetrofit().create(GoTAPI::class.java).getInfoNodes("https://thronesapi.com/api/v2/Characters")
-        //.getGames("games/games_list")
+        val call = RetrofitService.getRetrofit().create(GoTAPI::class.java).getInfoNodes()
 
         call.enqueue(object: Callback<ArrayList<InfoDetail>>{
             override fun onResponse(call: Call<ArrayList<InfoDetail>>, response: Response<ArrayList<InfoDetail>>) {
@@ -37,7 +36,7 @@ class MasterViewInfo : AppCompatActivity() {
                 Log.d(Constants.LOGTAG, "Respuesta del servidor: ${response.toString()}")
                 Log.d(Constants.LOGTAG, "Datos: ${response.body().toString()}")
 
-                val gamesAdapter = InfoAdapter(response.body()!!){ inf ->
+                val infAdapter = InfoAdapter(response.body()!!){ inf ->
                     val bundle = bundleOf("id" to inf.id)
                     val intent = Intent(this@MasterViewInfo, MainList::class.java)
 
@@ -45,7 +44,7 @@ class MasterViewInfo : AppCompatActivity() {
                     startActivity(intent)
                 }
                 binding.rvMenu.layoutManager = LinearLayoutManager(this@MasterViewInfo, RecyclerView.VERTICAL, false)
-                binding.rvMenu.adapter = gamesAdapter
+                binding.rvMenu.adapter = infAdapter
             }
 
             override fun onFailure(call: Call<ArrayList<InfoDetail>>, t: Throwable) {

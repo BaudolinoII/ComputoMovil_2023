@@ -2,6 +2,7 @@ plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
     id("kotlin-parcelize")
+    id("com.google.gms.google-services")
 }
 
 android {
@@ -58,6 +59,9 @@ dependencies {
     //Imágenes con bordes redondeados
     implementation ("com.makeramen:roundedimageview:2.3.0")
 
+    //Para firebase Auth
+    implementation("com.google.firebase:firebase-auth:22.3.0")
+    implementation("com.google.firebase:firebase-analytics:21.5.0")
 
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
