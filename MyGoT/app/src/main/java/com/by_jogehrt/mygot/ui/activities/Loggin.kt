@@ -8,6 +8,7 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import com.by_jogehrt.mygot.R
 import com.by_jogehrt.mygot.databinding.ActivityLogginBinding
 import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.AuthResult
@@ -28,12 +29,12 @@ class Loggin : AppCompatActivity() {
         //Para firebaseAuth
         firebaseAuth = FirebaseAuth.getInstance()
 
+
         if (firebaseAuth.currentUser != null) {
             startActivity(Intent(this, MasterViewInfo::class.java))
             finish()
         }
-
-
+        
         with(binding) {
             binding.btnLogin.setOnClickListener {
                 if (!checkFields()) return@setOnClickListener
@@ -51,33 +52,33 @@ class Loggin : AppCompatActivity() {
                 resetEmail.inputType = InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS
 
                 val passwordResetDialog = AlertDialog.Builder(it.context)
-                    .setTitle("Restablecer contraseña")
-                    .setMessage("Ingresa el correo para restablecer su contraseña")
+                    .setTitle(getString(R.string.restore_pass))
+                    .setMessage(getString(R.string.log_to_res))
                     .setView(resetEmail)
-                    .setPositiveButton("Enviar") { _, _ ->
+                    .setPositiveButton(getString(R.string.send)) { _, _ ->
                         val mail = resetEmail.text.toString()
                         if (mail.isNotEmpty()) {
                             firebaseAuth.sendPasswordResetEmail(mail).addOnSuccessListener {
                                 Toast.makeText(
                                     this@Loggin,
-                                    "El correo para restablecer la contraseña ha sido enviado",
+                                    getString(R.string.mail_to_res_send),
                                     Toast.LENGTH_SHORT
                                 ).show()
                             }.addOnFailureListener {
                                 Toast.makeText(
                                     this@Loggin,
-                                    "No se pudo enviar el correro",
+                                    getString(R.string.mail_to_res_fail),
                                     Toast.LENGTH_SHORT
                                 ).show()
                             }
                         } else {
                             Toast.makeText(
                                 this@Loggin,
-                                "Por favor ingresa un correo",
+                                getString(R.string.mail_please),
                                 Toast.LENGTH_SHORT
                             ).show()
                         }
-                    }.setNegativeButton("Cancelar") { dialog, _ ->
+                    }.setNegativeButton(getString(R.string.cancel)) { dialog, _ ->
                         dialog.dismiss()
                     }
                     .create()
@@ -90,13 +91,13 @@ class Loggin : AppCompatActivity() {
         password = binding.tietPassword.text.toString().trim()
 
         if(email.isEmpty()){
-            binding.tietEmail.error = "Se requiere el correo"
+            binding.tietEmail.error = getString(R.string.mail_please)
             binding.tietEmail.requestFocus()
             return false
         }
 
         if(password.isEmpty() || password.length < 6){
-            binding.tietPassword.error = "Se requiere una contraseña o la contraseña no tiene por lo menos 6 caracteres"
+            binding.tietPassword.error = getString(R.string.password_request)
             binding.tietPassword.requestFocus()
             return false
         }
@@ -115,42 +116,42 @@ class Loggin : AppCompatActivity() {
 
         when(errorCode){
             "ERROR_INVALID_EMAIL" -> {
-                Toast.makeText(this, "Error: El correo electrónico no tiene un formato correcto", Toast.LENGTH_SHORT).show()
-                binding.tietEmail.error = "Error: El correo electrónico no tiene un formato correcto"
+                Toast.makeText(this, getString(R.string.error_mail_format), Toast.LENGTH_SHORT).show()
+                binding.tietEmail.error = getString(R.string.error_mail_format)
                 binding.tietEmail.requestFocus()
             }
             "ERROR_WRONG_PASSWORD" -> {
-                Toast.makeText(this, "Error: La contraseña no es válida", Toast.LENGTH_SHORT).show()
-                binding.tietPassword.error = "La contraseña no es válida"
+                Toast.makeText(this, getString(R.string.error_pwrd_format), Toast.LENGTH_SHORT).show()
+                binding.tietPassword.error = getString(R.string.error_pwrd_format)
                 binding.tietPassword.requestFocus()
                 binding.tietPassword.setText("")
 
             }
             "ERROR_ACCOUNT_EXISTS_WITH_DIFFERENT_CREDENTIAL" -> {
                 //An account already exists with the same email address but different sign-in credentials. Sign in using a provider associated with this email address.
-                Toast.makeText(this, "Error: Una cuenta ya existe con el mismo correo, pero con diferentes datos de ingreso", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, getString(R.string.error_count_albind), Toast.LENGTH_SHORT).show()
             }
             "ERROR_EMAIL_ALREADY_IN_USE" -> {
-                Toast.makeText(this, "Error: el correo electrónico ya está en uso con otra cuenta.", Toast.LENGTH_LONG).show()
-                binding.tietEmail.error = ("Error: el correo electrónico ya está en uso con otra cuenta.")
+                Toast.makeText(this, getString(R.string.error_mail_aluse), Toast.LENGTH_LONG).show()
+                binding.tietEmail.error = getString(R.string.error_mail_aluse)
                 binding.tietEmail.requestFocus()
             }
             "ERROR_USER_TOKEN_EXPIRED" -> {
-                Toast.makeText(this, "Error: La sesión ha expirado. Favor de ingresar nuevamente.", Toast.LENGTH_LONG).show()
+                Toast.makeText(this, getString(R.string.error_sesion_exp), Toast.LENGTH_LONG).show()
             }
             "ERROR_USER_NOT_FOUND" -> {
-                Toast.makeText(this, "Error: No existe el usuario con la información proporcionada.", Toast.LENGTH_LONG).show()
+                Toast.makeText(this, getString(R.string.error_user_notf), Toast.LENGTH_LONG).show()
             }
             "ERROR_WEAK_PASSWORD" -> {
-                Toast.makeText(this, "La contraseña porporcionada es inválida", Toast.LENGTH_LONG).show()
-                binding.tietPassword.error = "La contraseña debe de tener por lo menos 6 caracteres"
+                Toast.makeText(this, getString(R.string.error_pwrd_format), Toast.LENGTH_LONG).show()
+                binding.tietPassword.error = getString(R.string.password_request)
                 binding.tietPassword.requestFocus()
             }
             "NO_NETWORK" -> {
-                Toast.makeText(this, "Red no disponible o se interrumpió la conexión", Toast.LENGTH_LONG).show()
+                Toast.makeText(this, getString(R.string.error_no_online), Toast.LENGTH_LONG).show()
             }
             else -> {
-                Toast.makeText(this, "Error. No se pudo autenticar exitosamente.", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, getString(R.string.error_anycase), Toast.LENGTH_SHORT).show()
             }
         }
 
@@ -161,7 +162,7 @@ class Loggin : AppCompatActivity() {
         firebaseAuth.signInWithEmailAndPassword(usr, psw).addOnCompleteListener { authResult ->
             binding.progressBar.visibility = View.GONE
             if(authResult.isSuccessful){
-                Toast.makeText(this, "Autenticación exitosa", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, getString(R.string.succ_aut), Toast.LENGTH_SHORT).show()
                 startActivity(Intent(this, MasterViewInfo::class.java))
                 finish()
             }else errorManager(authResult)
@@ -177,12 +178,12 @@ class Loggin : AppCompatActivity() {
                 val user_fb = firebaseAuth.currentUser
 
                 user_fb?.sendEmailVerification()?.addOnSuccessListener {
-                    Toast.makeText(this, "El correo de verificación ha sido enviado a tu cuenta", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, getString(R.string.mail_to_log_send), Toast.LENGTH_SHORT).show()
                 }?.addOnFailureListener {
-                    Toast.makeText(this, "No se pudo enviar el correo de verificación", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, getString(R.string.mail_to_log_fail), Toast.LENGTH_SHORT).show()
                 }
 
-                Toast.makeText(this, "Usuario creado", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, getString(R.string.logged_user), Toast.LENGTH_SHORT).show()
                 startActivity(Intent(this, MasterViewInfo::class.java))
                 finish()
             }else errorManager(authResult)

@@ -1,3 +1,26 @@
 <resources>
     <string name="app_name">MyGoT</string>
+    <string name="restore_pass">Reestablecer Contraseña</string>
+    <string name="log_to_res">Ingresa el correo para restablecer su contraseña</string>
+    <string name="send">Enviar</string>
+    <string name="mail_to_res_send">El correo para restablecer la contraseña ha sido enviado</string>
+    <string name="mail_to_res_fail">No se pudo enviar el correo</string>
+    <string name="mail_please">Por favor ingresa un correo</string>
+    <string name="cancel">Cancelar</string>
+    <string name="password_request">Se requiere una contraseña, esta debe tener por lo menos 6 caracteres</string>
+
+    <string name="error_mail_format">Error: El correo electrónico no tiene un formato correcto</string>
+    <string name="error_pwrd_format">Error: La contraseña no es válida</string>
+    <string name="error_count_albind">Error: Una cuenta ya existe con el mismo correo, pero con diferentes datos de ingreso</string>
+    <string name="error_mail_aluse">Error: el correo electrónico ya está en uso con otra cuenta</string>
+    <string name="error_sesion_exp">Error: La sesión ha expirado. Favor de ingresar nuevamente</string>
+    <string name="error_user_notf">Error: No existe el usuario con la información proporcionada</string>
+    <string name="error_no_online">Error: Red no disponible o se interrumpió la conexión</string>
+    <string name="error_anycase">Error: No se pudo autenticar exitosamente</string>
+
+
+    <string name="succ_aut">Autenticación exitosa</string>
+    <string name="mail_to_log_send">El correo de verificación ha sido enviado a tu cuenta</string>
+    <string name="mail_to_log_fail">No se pudo enviar el correo de verificación</string>
+    <string name="logged_user">Usuario creado</string>
 </resources>

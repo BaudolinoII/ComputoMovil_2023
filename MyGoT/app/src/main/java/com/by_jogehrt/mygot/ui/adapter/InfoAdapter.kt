@@ -7,9 +7,7 @@ import com.bumptech.glide.Glide
 import com.by_jogehrt.mygot.databinding.ListElementBinding
 import com.by_jogehrt.mygot.info.InfoDetail
 
-class InfoAdapter(private var infoNodes : ArrayList<InfoDetail>, private var onInfoClick :(inf : InfoDetail) -> Unit) : RecyclerView.Adapter<InfoAdapter.ViewHolder>() {
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder = ViewHolder(ListElementBinding.inflate(LayoutInflater.from(parent.context)))
-    override fun getItemCount(): Int = infoNodes.size
+class InfoAdapter(private var infoNodes : ArrayList<InfoDetail>, private var onInfoClick : (InfoDetail) -> Unit) : RecyclerView.Adapter<InfoAdapter.ViewHolder>() {
     class ViewHolder(private var binding: ListElementBinding): RecyclerView.ViewHolder(binding.root){
         fun bind(inf : InfoDetail){
             binding.tvNombre.text = inf.f_name
@@ -17,6 +15,12 @@ class InfoAdapter(private var infoNodes : ArrayList<InfoDetail>, private var onI
             Glide.with(itemView.context).load(inf.image_url).into(binding.ivProfile)
         }
     }
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder{
+        val binding = ListElementBinding.inflate(LayoutInflater.from(parent.context))
+        return ViewHolder(binding)
+    }
+    override fun getItemCount(): Int = infoNodes.size
+
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val infoNode = infoNodes[position]
 

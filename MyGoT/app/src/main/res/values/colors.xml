@@ -8,16 +8,34 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
-    <color name="Arryn">#83F0F4</color>
-    <color name="Baratheon">#F4D300</color>
-    <color name="Greyjoy">#291D0A</color>
-    <color name="Lannister">#BF2418</color>
-    <color name="Martell">#D58C10</color>
-    <color name="Mormont">#123905</color>
-    <color name="Stark">#C4C4C4</color>
-    <color name="Targaryen">#130B0B</color>
-    <color name="Tully">#0A61A3</color>
-    <color name="Tyrell">#75A30A</color>
-    <color name="Unknown">#FFFFFF</color>
+    <color name="background_loggin">#48607A</color>
+    <color name="background_button">#1D2071</color>
+    <color name="text_loggin">#04231D</color>
+    <color name="text_button">#D8D9F8</color>
+    <color name="text_field">#BEBFBF</color>
+
+    <color name="arryn">#83F0F4</color>
+    <color name="baratheon">#F4D300</color>
+    <color name="greyjoy">#291D0A</color>
+    <color name="lannister">#BF2418</color>
+    <color name="martell">#D58C10</color>
+    <color name="mormont">#123905</color>
+    <color name="stark">#C4C4C4</color>
+    <color name="targaryen">#130B0B</color>
+    <color name="tully">#0A61A3</color>
+    <color name="tyrell">#75A30A</color>
+    <color name="unknown">#FFFFFF</color>
+
+    <color name="text_arryn">#0D1A1B</color>
+    <color name="text_baratheon">#221F11</color>
+    <color name="text_greyjoy">#EFBF73</color>
+    <color name="text_lannister">#2C100D</color>
+    <color name="text_martell">#302209</color>
+    <color name="text_mormont">#79B863</color>
+    <color name="text_stark">#0B0A0A</color>
+    <color name="text_targaryen">#F38585</color>
+    <color name="text_tully">#0B1A25</color>
+    <color name="text_tyrell">#191E0C</color>
+    <color name="text_unknown">#000000</color>
 
 </resources>
