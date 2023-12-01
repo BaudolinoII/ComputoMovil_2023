@@ -56,11 +56,11 @@ class MasterViewInfo : AppCompatActivity() { //Main Class
 
         })
 
-       /* binding.btLogOut.setOnClickListener {
+       binding.btLogOut.setOnClickListener {
             firebaseAuth.signOut()
             startActivity(Intent(this, Loggin::class.java))
             finish()
-        }*/
+        }
     }
 }
 

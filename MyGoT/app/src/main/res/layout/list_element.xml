@@ -11,7 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.02" />
+        app:layout_constraintGuide_begin="14dp" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/gl_margin_Cross"
@@ -25,14 +25,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.18" />
+        app:layout_constraintGuide_begin="132dp" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/gl_margin_Text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.10" />
+        app:layout_constraintGuide_begin="73dp" />
 
     <TextView
         android:id="@+id/tv_nombre"
@@ -41,7 +41,7 @@
         android:text="Nombre por defecto"
         android:fontFamily="@font/new_rocker"
         android:textColor="@color/text_loggin"
-        android:textSize="10pt"
+        android:textSize="30sp"
         android:gravity="center"
 
         app:layout_constraintTop_toTopOf="@id/gl_margin_Top"
@@ -55,7 +55,7 @@
         android:text="Apellido por defecto"
         android:fontFamily="@font/new_rocker"
         android:textColor="@color/text_loggin"
-        android:textSize="10pt"
+        android:textSize="30sp"
         android:gravity="center"
 
         app:layout_constraintTop_toTopOf="@id/gl_margin_Text"
@@ -65,13 +65,12 @@
 
     <ImageView
         android:id="@+id/iv_profile"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="110dp"
+        android:layout_height="110dp"
 
         tools:srcCompat="@tools:sample/avatars"
         app:layout_constraintTop_toTopOf="@id/gl_margin_Top"
         app:layout_constraintBottom_toBottomOf="@id/gl_margin_Buttom"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="@id/gl_margin_Cross"
-        />
+        app:layout_constraintEnd_toEndOf="@id/gl_margin_Cross"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

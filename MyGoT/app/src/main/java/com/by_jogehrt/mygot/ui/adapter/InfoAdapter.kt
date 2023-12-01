@@ -2,6 +2,7 @@ package com.by_jogehrt.mygot.ui.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.view.isInvisible
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.by_jogehrt.mygot.databinding.ListElementBinding
@@ -13,6 +14,8 @@ class InfoAdapter(private var infoNodes : ArrayList<InfoDetail>, private var onI
             binding.tvNombre.text = inf.f_name
             binding.tvApellido.text = inf.l_name
             Glide.with(itemView.context).load(inf.image_url).into(binding.ivProfile)
+            if(inf.l_name?.compareTo("None") == 0 || inf.l_name?.compareTo("Unknown") == 0)
+                binding.tvApellido.isInvisible = true
         }
     }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder{

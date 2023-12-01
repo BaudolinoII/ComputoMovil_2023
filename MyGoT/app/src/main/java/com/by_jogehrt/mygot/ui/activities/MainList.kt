@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.isInvisible
 import com.bumptech.glide.Glide
 import com.by_jogehrt.mygot.R
 import com.by_jogehrt.mygot.databinding.DetailElementBinding
@@ -35,11 +36,26 @@ class MainList : AppCompatActivity() {
 
             with(binding) {
                     pbConexion.visibility = View.INVISIBLE
-                    Glide.with(this@MainList).load(response.body()?.image).into(ivProfile)
-                    tvFullName.text = response.body()?.f_name
+                    Glide.with(this@MainList).load(response.body()?.image_url).into(ivProfile)
+                    tvFullName.text = response.body()?.fl_name
                     tvFamily.text = response.body()?.family
                     tvTitle.text = response.body()?.title
-                    Glide.with(this@MainList).load(response.body()?.family?.let{getTagResource(it,false) }).into(ivHouse)
+                    when(response.body()?.family?.let { getTagResource(it) }){
+                        0->ivHouse.setBackgroundResource(R.drawable.arryn)
+                        1->ivHouse.setBackgroundResource(R.drawable.baratheon)
+                        2->ivHouse.setBackgroundResource(R.drawable.greyjoy)
+                        3->ivHouse.setBackgroundResource(R.drawable.lannister)
+                        4->ivHouse.setBackgroundResource(R.drawable.martell)
+                        5->ivHouse.setBackgroundResource(R.drawable.mormont)
+                        6->ivHouse.setBackgroundResource(R.drawable.stark)
+                        7->ivHouse.setBackgroundResource(R.drawable.targaryen)
+                        8->ivHouse.setBackgroundResource(R.drawable.tully)
+                        9->ivHouse.setBackgroundResource(R.drawable.tyrell)
+                        10->ivHouse.isInvisible = true
+                    }
+
+                    //tvFamily.text = response.body()?.family?.let{getTagResource(it,true)}
+                    //Glide.with(this@MainList).load("R.drawable.arryn").into(ivHouse)
                 }
 
             }
@@ -49,7 +65,7 @@ class MainList : AppCompatActivity() {
             }
         })
     }
-    private fun getTagResource(name :String, withText :Boolean) : String{
+    private fun getTagResource(name :String) : Int{
         var tagname : String = "unknown"
         var house : String = ""
         var chops : List<String> = name.split(" ")
@@ -57,12 +73,14 @@ class MainList : AppCompatActivity() {
             house = chops[1].lowercase(Locale.ROOT)
         else
             house = chops[0].lowercase(Locale.ROOT)
-        for(compare in canons)
-            if(house.compareTo(compare) == 0){
-                if(withText) tagname = "text_" + house;
-                else tagname = house
-                return tagname
+
+        var index : Int = 0
+        for(compare in canons) {
+            if (house.compareTo(compare) == 0) {
+                return index
             }
-        return tagname
+            index++
+        }
+        return index
     }
 }
